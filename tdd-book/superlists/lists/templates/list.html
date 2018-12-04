@@ -8,7 +8,9 @@
 
     	<form method="POST" action="/lists/{{ list.id }}/add_item/">
     		{% csrf_token %}
-    		<input id="id_new_item" type="text" name="item_text" placeholder="Enter a to-do item">
+    		<div align="center">
+                <input id="id_new_item" type="text" name="item_text" placeholder="Enter a to-do item">  
+            </div>
     	</form>
     	
     	<table id="id_list_table"> 

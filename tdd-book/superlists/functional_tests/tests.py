@@ -15,10 +15,12 @@ class NewVisitorTest(StaticLiveServerTestCase):
 	MAX_WAIT = 10
 
 	def setUp(self):
-		self.browser = webdriver.Chrome('/Users/justindodson/Desktop/WebDevelopment/obeyTheTestingGoat/tdd-book/superlists/functional_tests/chromedriver')
 		staging_server = os.environ.get('STAGING_SERVER')
 		if staging_server:
+			self.browser = webdriver.Chrome()
 			self.live_server_url = 'http://{}'.format(staging_server) 
+		else:
+			self.browser = webdriver.Chrome('/Users/justindodson/Desktop/WebDevelopment/obeyTheTestingGoat/tdd-book/superlists/functional_tests/chromedriver')
 
 	def tearDown(self):
 		self.browser.quit()

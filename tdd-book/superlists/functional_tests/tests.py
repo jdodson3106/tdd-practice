@@ -17,7 +17,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
 	def setUp(self):
 		staging_server = os.environ.get('STAGING_SERVER')
 		if staging_server:
-			self.browser = webdriver.Firefox()
+			self.browser = webdriver.Chrome()
 			self.live_server_url = 'http://{}'.format(staging_server) 
 		else:
 			self.browser = webdriver.Chrome('/Users/justindodson/Desktop/WebDevelopment/obeyTheTestingGoat/tdd-book/superlists/functional_tests/chromedriver')

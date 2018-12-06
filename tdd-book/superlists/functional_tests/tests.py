@@ -20,7 +20,6 @@ class NewVisitorTest(StaticLiveServerTestCase):
 			chrome_options = webdriver.ChromeOptions()
 			chrome_options.add_argument('--no-sandbox')
 			self.browser = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
-			self.browser.get('http://{}'.format(staging_server))
 			self.live_server_url = 'http://{}'.format(staging_server) 
 		else:
 			self.browser = webdriver.Chrome('/Users/justindodson/Desktop/WebDevelopment/obeyTheTestingGoat/tdd-book/superlists/functional_tests/chromedriver')

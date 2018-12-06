@@ -18,7 +18,9 @@ class NewVisitorTest(StaticLiveServerTestCase):
 		staging_server = os.environ.get('STAGING_SERVER')
 		if staging_server:
 			chrome_options = webdriver.ChromeOptions()
+			chrome_options.add_argument('--headless')
 			chrome_options.add_argument('--no-sandbox')
+			chrome_options.add_argument('--disable-dev-shm-usage')
 			self.browser = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
 			self.live_server_url = 'http://{}'.format(staging_server) 
 		else:

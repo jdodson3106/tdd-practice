@@ -97,7 +97,16 @@ class NewVisitorTest(StaticLiveServerTestCase):
 		## We use a new browser session to make sure that no information
 		## of Edith's is coming through from cookies etc
 		self.browser.quit()
-		self.browser = webdriver.Chrome('/Users/justindodson/Desktop/WebDevelopment/obeyTheTestingGoat/tdd-book/superlists/functional_tests/chromedriver')
+		if staging_server:
+			chrome_options = webdriver.ChromeOptions()
+			chrome_options.add_argument('--headless')
+			chrome_options.add_argument('--no-sandbox')
+			chrome_options.add_argument('--disable-dev-shm-usage')
+			self.browser = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
+			self.live_server_url = 'http://{}'.format(staging_server) 
+		else:
+			self.browser = webdriver.Chrome('/Users/justindodson/Desktop/WebDevelopment/obeyTheTestingGoat/tdd-book/superlists/functional_tests/chromedriver')
+
 
 		# Francis visits the home page.  There is no sign of Edith's
 		# list

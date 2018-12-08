@@ -97,7 +97,8 @@ class NewVisitorTest(StaticLiveServerTestCase):
 		## We use a new browser session to make sure that no information
 		## of Edith's is coming through from cookies etc
 		self.browser.quit()
-		if self.staging_server:
+		staging_server = os.environ.get('STAGING_SERVER')
+		if staging_server:
 			chrome_options = webdriver.ChromeOptions()
 			chrome_options.add_argument('--headless')
 			chrome_options.add_argument('--no-sandbox')

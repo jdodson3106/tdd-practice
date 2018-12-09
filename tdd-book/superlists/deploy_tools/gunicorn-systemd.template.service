@@ -1,0 +1,14 @@
+[Unit]
+Description=Gunicorn server for DOMAIN
+
+[Service]
+Restart=on-failure
+User=justin
+WorkingDirectory=/home/justin/sites/superlists-staging-thefocalpointapp.com/tdd-book/superlists
+EnvironmentFile=/home/justin/sites/superlists-staging-thefocalpointapp.com/tdd-book/superlists/.env
+
+ExecStart=/home/justin/sites/superlists-staging-thefocalpointapp.com/tdd-book/superlists/virtualenv/bin/gunicorn
+    --bind unix:/tmp/DOMAIN.socket superlists.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

@@ -36,7 +36,7 @@ def _update_virtualenv():
 
 	# use the pip install command to update the server tools 
 	# based on what's in the project's requirements.txt file
-	run('./virtualenv/bin/pip3 install -r ./superlists/requirements.txt') 
+	run('./virtualenv/bin/pip3 install -r ./requirements.txt') 
 
 def _create_or_update_dotenv():
 	# the append command conditionally adds a line to a file if that line isn't already there

@@ -20,7 +20,7 @@ def _get_latest_source():
 	if exists('.git'):
 		run('git fetch')  # git fetch all the latest commits from the repo
 	else:
-		run(f'git clone {REPO_URL} .'). # if the repo is not abailable then we clone the a fresh source tree from the github repo
+		run(f'git clone {REPO_URL} .') # if the repo is not abailable then we clone the a fresh source tree from the github repo
 
 	# fabric's local command here will get the id of the current commit
 	# from the git log invocation so that the server gets whatever code is 

@@ -31,12 +31,12 @@ def _get_latest_source():
 def _update_virtualenv():
 	# look inside the virtualenv directory for the pip executable to see if it already exists
 	# if not we will create a new virtualenv in the directory
-	if not exists('virtualenv/bin/pip'):
+	if not exists('virtualenv/bin/pip3'):
 		run(f'python3.6 -m venv virtualenv')
 
 	# use the pip install command to update the server tools 
 	# based on what's in the project's requirements.txt file
-	run('./virtualenv/bin/pip3 install -r ./requirements.txt') 
+	run('./virtualenv/bin/pip3 install -r requirements.txt') 
 
 def _create_or_update_dotenv():
 	# the append command conditionally adds a line to a file if that line isn't already there
@@ -55,10 +55,10 @@ def _create_or_update_dotenv():
 def _update_static_files():
 	# use virtualenv version of python to make sure we get the venv version of django
 	# to run the collectstatic command
-	run('./virtualenv/bin/python manage.py collectstatic --noinput')
+	run('./virtualenv/bin/python3 manage.py collectstatic --noinput')
 
 def _update_database():
-	run('./virtualenv/bin/python manage.py migrate --noinput')
+	run('./virtualenv/bin/python3 manage.py migrate --noinput')
 
 
 

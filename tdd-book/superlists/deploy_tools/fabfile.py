@@ -5,7 +5,7 @@ from fabric.api import cd, env, local, run
 REPO_URL = 'https://github.com/jdodson3106/tdd-practice.git'
 
 def depoloy():
-	site_folder = f'/home/{env.user}/sites/{env.host}/superlists'
+	site_folder = f'/home/{env.user}/sites/superlists-staging-thefocalpointapp.com/tdd-book/superlists'
 	run(f'mkdir -p {site_folder}')
 	with cd(site_folder):
 		_get_latest_source()

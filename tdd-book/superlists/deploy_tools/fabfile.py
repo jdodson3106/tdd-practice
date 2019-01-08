@@ -56,10 +56,10 @@ def _create_or_update_dotenv():
 def _update_static_files():
 	# use virtualenv version of python to make sure we get the venv version of django
 	# to run the collectstatic command
-	run('./virtualenv/bin/python3 manage.py collectstatic --noinput')
+	run('./virtualenv/bin/python3 ./tdd-book/superlists/manage.py collectstatic --noinput')
 
 def _update_database():
-	run('./virtualenv/bin/python3 manage.py migrate --noinput')
+	run('./virtualenv/bin/python3 ./tdd-book/superlists/manage.py migrate --noinput')
 
 
 
